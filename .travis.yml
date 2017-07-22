@@ -3,7 +3,7 @@ php:
   - '7.1'
 install:
   - composer install
-  env:
+env:
   - DB_HOST=127.0.0.1
   - DB_PORT=123
   - DB_NAME=name
