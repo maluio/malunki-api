@@ -50,7 +50,6 @@ class Card
     /**
      * @var float
      *
-     * @Groups({"read"})
      * @ORM\Column(type="float")
      */
     private $eFactor = '';
@@ -58,7 +57,6 @@ class Card
     /**
      * @var integer
      *
-     * @Groups({"read"})
      * @ORM\Column(type="integer")
      */
     private $repetition = '';
@@ -66,7 +64,6 @@ class Card
     /**
      * @var integer
      *
-     * @Groups({"read"})
      * @ORM\Column(type="integer")
      */
     private $lastInterval = '';
@@ -74,35 +71,11 @@ class Card
     /**
      * @var \DateTime
      *
-     * @Groups({"read", "write"})
+     * @Groups({"read"})
      * @ORM\Column(type="datetime")
      *
      */
     private $reviewDate = '';
-
-    /**
-     * @return int
-     */
-    public function getMinutesTilNextReview()
-    {
-        return $this->minutesTilNextReview;
-    }
-
-    /**
-     * @param int $minutesTilNextReview
-     */
-    public function setMinutesTilNextReview($minutesTilNextReview)
-    {
-        $this->minutesTilNextReview = $minutesTilNextReview;
-    }
-
-    /**
-     * @var integer
-     *
-     * @Groups({"write"})
-     *
-     */
-    private $minutesTilNextReview = '';
 
     /**
      * Get id
@@ -195,14 +168,6 @@ class Card
     }
 
     /**
-     * @ORM\PrePersist
-     */
-    public function onPrePersistSetRepetition()
-    {
-        $this->repetition = 0;
-    }
-
-    /**
      * Set repetition
      *
      * @param integer $repetition
@@ -227,14 +192,6 @@ class Card
     }
 
     /**
-     * @ORM\PrePersist
-     */
-    public function onPrePersistSetReviewDate()
-    {
-        $this->reviewDate = new \DateTime();
-    }
-
-    /**
      * Set reviewDate
      *
      * @param \DateTime $reviewDate
@@ -256,14 +213,6 @@ class Card
     public function getReviewDate()
     {
         return $this->reviewDate;
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function onPrePersistSetLastInterval()
-    {
-        $this->lastInterval = 0;
     }
 
     /**

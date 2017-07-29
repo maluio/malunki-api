@@ -5,7 +5,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
 //use AppBundle\Calculator;
 
-class Card
+class CardUpdate
 {
     //private $calculator;
 
@@ -29,13 +29,16 @@ class Card
         // dump($data);
         //$data->setEFactor($this->calculator->calcNewEFactor());
 
-        if ($data->getMinutesTilNextReview()) {
+      //  if ($data->getMinutesTilNextReview()) {
             // seems like you need to create a new \DateTime, otherwise changes are not detected?!
-            $newDate = new \DateTime();
-            $newDate->setTimestamp($newDate->getTimestamp() + ($data->getMinutesTilNextReview() * 60));
-            $data->setReviewDate($newDate);
-        }
+       //     $newDate = new \DateTime();
+       //     $newDate->setTimestamp($newDate->getTimestamp() + ($data->getMinutesTilNextReview() * 60));
+       //     $data->setReviewDate($newDate);
+      //  }
+
 
         return $data;
     }
+
+
 }
