@@ -1,7 +1,12 @@
-# run phpunit tests
-.PHONY: test
-test:
+test : unit behat
+
+.PHONY: unit
+unit:
 	docker-compose exec app vendor/bin/phpunit
+
+.PHONY: behat
+behat:
+	 docker-compose exec app vendor/bin/behat
 
 .PHONY: cache
 cache:
