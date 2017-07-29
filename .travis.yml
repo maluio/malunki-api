@@ -8,6 +8,7 @@ env:
   MAIL_RECIPIENT=me@example.com CORS_ALLOW_ORIGIN=https://your-client-url.com LOCALE=en
   SECRET=secret HTTP_PASSWORD=ADD
 script:
+- vendor/bin/phpunit
 - vendor/bin/behat
 deploy:
   provider: heroku
