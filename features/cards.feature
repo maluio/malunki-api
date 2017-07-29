@@ -5,8 +5,7 @@ Feature: Manage cards
 
   # the "@createSchema" annotation provided by API Platform creates a temporary SQLite database for testing the API
   @createSchema
-  @dropSchema
-  Scenario: Get empty card
+  Scenario: Get empty card list
     When I add "Content-Type" header equal to "application/ld+json"
     And I add "Accept" header equal to "application/ld+json"
     And I send a "GET" request to "/cards"
@@ -23,34 +22,29 @@ Feature: Manage cards
         "hydra:totalItems": 0
     }
     """
-
-  #Scenario: Create a card
-#    When I add "Content-Type" header equal to "application/ld+json"
-#    And I add "Accept" header equal to "application/ld+json"
-#    And I send a "POST" request to "/cards" with body:
-#    """
-#    {
-#      "front": "string",
-#      "back": "string",
-#      "reviewDate": "2020-07-29T06:07:54.470Z",
-#      "minutesTilNextReview": 0
-#    }
-#    """
-#    Then the response status code should be 201
-#    And the response should be in JSON
-#    And the header "Content-Type" should be equal to "application/ld+json; charset=utf-8"
-#    And the JSON should be equal to:
-#    """
-#    {
-#      "@context": "\/contexts\/Card",
-#      "@id": "\/cards\/1",
-#      "@type": "Card",
-#      "id": 1,
-#      "front": "string",
-#      "back": "string",
-#      "eFactor": 0,
-#      "repetition": 0,
-#      "lastInterval": 0,
-#      "reviewDate": "2020-07-29T06:07:54+00:00"
-#    }
-#    """
+  @dropSchema
+  Scenario: Create a card
+    When I add "Content-Type" header equal to "application/ld+json"
+    And I add "Accept" header equal to "application/ld+json"
+    And I send a "POST" request to "/cards" with body:
+    """
+    {
+      "front": "string",
+      "back": "string"
+    }
+    """
+    Then the response status code should be 201
+    And the response should be in JSON
+    And the header "Content-Type" should be equal to "application/ld+json; charset=utf-8"
+    And the JSON should be equal to:
+    """
+    {
+      "@context": "\/contexts\/Card",
+      "@id": "\/cards\/1",
+      "@type": "Card",
+      "id": 1,
+      "front": "string",
+      "back": "string",
+      "reviewDate": "2000-07-29T11:43:16+00:00"
+    }
+    """

@@ -8,8 +8,10 @@ unit:
 behat:
 	 docker-compose exec app vendor/bin/behat
 
-.PHONY: cache
-cache:
+cache : cacheclear permissions
+
+.PHONY: cacheclear
+cacheclear:
 	docker-compose exec app bin/console cache:clear
 
 # hack to fix container permissions issue
