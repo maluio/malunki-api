@@ -38,11 +38,33 @@ class Card
     private $word;
 
     /**
+     * @var array
+     * @Groups({"read"})
+     */
+    private $reviewQualities;
+
+    /**
      * @return string
      */
     public function getWord()
     {
         return $this->word;
+    }
+
+    /**
+     * @return array
+     */
+    public function getReviewQualities()
+    {
+        return $this->reviewQualities;
+    }
+
+    /**
+     * @param array $reviewQualities
+     */
+    public function setReviewQualities($reviewQualities)
+    {
+        $this->reviewQualities = $reviewQualities;
     }
 
     /**
@@ -156,14 +178,6 @@ class Card
     public function getBack()
     {
         return $this->back;
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function onPrePersistSetEFactor()
-    {
-        $this->eFactor = 0;
     }
 
     /**

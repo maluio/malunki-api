@@ -44,6 +44,7 @@ Feature: Manage cards
       "@type": "Card",
       "id": 1,
       "word": "ohlala",
+      "reviewQualities": null,
       "front": "vorne",
       "back": "hinten",
       "reviewDate": "2000-07-29T11:43:16+00:00"
@@ -71,6 +72,32 @@ Feature: Manage cards
       "@type": "Card",
       "id": 1,
       "word": "maison",
+      "reviewQualities": [
+          {
+              "value": 0,
+              "nextReviewInMinutes": 0
+          },
+          {
+              "value": 1,
+              "nextReviewInMinutes": 0
+          },
+          {
+              "value": 2,
+              "nextReviewInMinutes": 0
+          },
+          {
+              "value": 3,
+              "nextReviewInMinutes": 0
+          },
+          {
+              "value": 4,
+              "nextReviewInMinutes": 0
+          },
+          {
+              "value": 5,
+              "nextReviewInMinutes": 0
+          }
+      ],
       "front": "vorneNeu",
       "back": "hintenNeu",
       "reviewDate": "2000-07-29T11:43:16+00:00"
@@ -95,6 +122,32 @@ Feature: Manage cards
               "@type": "Card",
               "id": 1,
               "word": "maison",
+              "reviewQualities": [
+                      {
+                          "value": 0,
+                          "nextReviewInMinutes": 0
+                      },
+                      {
+                          "value": 1,
+                          "nextReviewInMinutes": 0
+                      },
+                      {
+                          "value": 2,
+                          "nextReviewInMinutes": 0
+                      },
+                      {
+                          "value": 3,
+                          "nextReviewInMinutes": 0
+                      },
+                      {
+                          "value": 4,
+                          "nextReviewInMinutes": 0
+                      },
+                      {
+                          "value": 5,
+                          "nextReviewInMinutes": 0
+                      }
+                  ],
               "front": "vorneNeu",
               "back": "hintenNeu",
               "reviewDate": "2000-07-29T11:43:16+00:00"
