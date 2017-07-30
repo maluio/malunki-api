@@ -31,6 +31,30 @@ class Card
     private $id;
 
     /**
+     * @var string The word
+     * @Assert\NotBlank
+     * @ORM\Column(type="string")
+     * @Groups({"read", "write"})
+     */
+    private $word;
+
+    /**
+     * @return string
+     */
+    public function getWord()
+    {
+        return $this->word;
+    }
+
+    /**
+     * @param string $word
+     */
+    public function setWord($word)
+    {
+        $this->word = $word;
+    }
+
+    /**
      * @var string front
      *
      * @ORM\Column(type="text")

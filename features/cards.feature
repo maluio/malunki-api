@@ -28,6 +28,7 @@ Feature: Manage cards
     And I send a "POST" request to "/cards" with body:
     """
     {
+      "word": "ohlala",
       "front": "vorne",
       "back": "hinten"
     }
@@ -42,6 +43,7 @@ Feature: Manage cards
       "@id": "\/cards\/1",
       "@type": "Card",
       "id": 1,
+      "word": "ohlala",
       "front": "vorne",
       "back": "hinten",
       "reviewDate": "2000-07-29T11:43:16+00:00"
@@ -53,6 +55,7 @@ Feature: Manage cards
     And I send a "PUT" request to "/cards/1" with body:
     """
     {
+      "word": "maison",
       "front": "vorneNeu",
       "back": "hintenNeu"
     }
@@ -67,6 +70,7 @@ Feature: Manage cards
       "@id": "\/cards\/1",
       "@type": "Card",
       "id": 1,
+      "word": "maison",
       "front": "vorneNeu",
       "back": "hintenNeu",
       "reviewDate": "2000-07-29T11:43:16+00:00"
@@ -90,6 +94,7 @@ Feature: Manage cards
               "@id": "\/cards\/1",
               "@type": "Card",
               "id": 1,
+              "word": "maison",
               "front": "vorneNeu",
               "back": "hintenNeu",
               "reviewDate": "2000-07-29T11:43:16+00:00"
