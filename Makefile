@@ -27,3 +27,7 @@ cachewarmup:
 .PHONY: permissions
 permissions:
 	docker-compose exec app chown -R www-data var
+
+.PHONY: assets
+assets:
+	docker-compose exec app bin/console assets:install
