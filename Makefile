@@ -1,3 +1,8 @@
+.PHONY: start
+start:
+	bash bin/docker_start.sh
+	docker-compose up -d
+
 test : unit behat
 
 .PHONY: unit
