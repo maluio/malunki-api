@@ -13,7 +13,7 @@ unit:
 behat:
 	 docker-compose exec app vendor/bin/behat
 
-cache : cacheclear permissions
+cache : cacheclear permissions assets
 
 .PHONY: cacheclear
 cacheclear:
@@ -23,3 +23,7 @@ cacheclear:
 .PHONY: permissions
 permissions:
 	docker-compose exec app chown -R www-data var
+
+.PHONY: assets
+assets:
+	docker-compose exec app bin/console assets:install
