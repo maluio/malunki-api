@@ -1,6 +1,7 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Debug\Debug;
 
 /** @var \Composer\Autoload\ClassLoader $loader */
 $loader = require __DIR__.'/../app/autoload.php';
@@ -12,7 +13,18 @@ if (file_exists($path . '/.env')){
     $dotenv->load();
 }
 
-include_once __DIR__.'/../var/bootstrap.php.cache';
+if (
+      getenv('SYMFONY_ENV') === 'dev'
+      || getenv('SYMFONY_ENV') === 'test'
+    )
+{
+    Debug::enable();
+    $kernel = new AppKernel('dev', true);
+}
+else {
+    include_once __DIR__.'/../var/bootstrap.php.cache';
+    $kernel = new AppKernel('prod', false);
+}
 
 // Enable APC for autoloading to improve performance.
 // You should change the ApcClassLoader first argument to a unique prefix
@@ -24,7 +36,6 @@ $loader->unregister();
 $apcLoader->register(true);
 */
 
-$kernel = new AppKernel('prod', false);
 $kernel->loadClassCache();
 //$kernel = new AppCache($kernel);
 
