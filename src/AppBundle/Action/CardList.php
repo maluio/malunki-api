@@ -3,10 +3,24 @@ namespace AppBundle\Action;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
-use AppBundle\Entity\ReviewQuality;
+use \AppBundle\ReviewUtil\ReviewQualitiesProvider;
 
 class CardList
 {
+
+    /**
+     * @var \AppBundle\ReviewUtil\ReviewQualitiesProvider
+     */
+    private $reviewQualitiesProvider;
+
+    /**
+     * CardList constructor.
+     * @param \AppBundle\ReviewUtil\ReviewQualitiesProvider $reviewQualitiesProvider
+     */
+    public function __construct(ReviewQualitiesProvider $reviewQualitiesProvider)
+    {
+        $this->reviewQualitiesProvider = $reviewQualitiesProvider;
+    }
 
     /**
      * @Route(
@@ -20,18 +34,10 @@ class CardList
      */
     public function __invoke($data)
     {
-        $reviewQualities =  array (
-            (array) new ReviewQuality(0),
-            (array) new ReviewQuality(1),
-            (array) new ReviewQuality(2),
-            (array) new ReviewQuality(3),
-            (array) new ReviewQuality(4),
-            (array) new ReviewQuality(5),
-        );
 
         foreach ($data as $card) {
             $card->setReviewQualities(
-                $reviewQualities
+                $this->reviewQualitiesProvider->get()
             );
         }
 

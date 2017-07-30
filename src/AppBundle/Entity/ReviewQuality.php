@@ -14,7 +14,7 @@ class ReviewQuality
      * @param int $value
      * @param int $nextReviewInMinutes
      */
-    public function __construct($value, $nextReviewInMinutes = 0)
+    public function __construct($value = 0, $nextReviewInMinutes = 0)
     {
         $this->value = $value;
         $this->nextReviewInMinutes = $nextReviewInMinutes;
