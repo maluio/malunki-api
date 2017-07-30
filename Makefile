@@ -13,9 +13,16 @@ unit:
 behat:
 	 docker-compose exec app vendor/bin/behat
 
-.PHONY: cache
-cache:
-	docker-compose exec app bin/console cache:clear
+
+cache : cacheclear cachewarmup assets permissions
+
+.PHONY: cacheclear
+cacheclear:
+	docker-compose exec app bin/console cache:clear --no-warmup
+
+.PHONY: cachewarmup
+cachewarmup:
+	docker-compose exec app bin/console cache:warmup
 
 # hack to fix container permissions issue
 .PHONY: permissions
