@@ -3,7 +3,7 @@ namespace AppBundle\Action;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
-//use AppBundle\Calculator;
+use AppBundle\Entity\ReviewQuality;
 
 class CardUpdate
 {
@@ -35,6 +35,18 @@ class CardUpdate
        //     $newDate->setTimestamp($newDate->getTimestamp() + ($data->getMinutesTilNextReview() * 60));
        //     $data->setReviewDate($newDate);
       //  }
+
+        $reviewQualities =  array (
+            (array) new ReviewQuality(0),
+            (array) new ReviewQuality(1),
+            (array) new ReviewQuality(2),
+            (array) new ReviewQuality(3),
+            (array) new ReviewQuality(4),
+            (array) new ReviewQuality(5),
+        );
+        $data->setReviewQualities(
+            $reviewQualities
+        );
 
 
         return $data;

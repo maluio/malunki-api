@@ -43,6 +43,7 @@ class CardCreate implements ContainerAwareInterface
 
         $data->setRepetition(0);
         $data->setLastInterval(0);
+        $data->setEFactor(0);
 
         return $data;
     }
