@@ -24,8 +24,8 @@ class CardList
 
     /**
      * @Route(
-     *     name="api_cards_get_collection",
-     *     path="/cards",
+     *     name="api_cards_get_collection1",
+     *     path="/cards.{_format}",
      *     defaults={"_api_resource_class"="AppBundle\Entity\Card", "_api_collection_operation_name"="get"}
      * )
      * @Method("GET")
