@@ -24,7 +24,7 @@ class CardUpdate
 
     /**
      * @Route(
-     *     name="api_cards_put_item",
+     *     name="api_cards_put_item1",
      *     path="/cards/{id}",
      *     defaults={"_api_resource_class"="AppBundle\Entity\Card", "_api_item_operation_name"="put"}
      * )
