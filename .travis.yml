@@ -9,7 +9,6 @@ env:
   SECRET=secret HTTP_PASSWORD=ADD
 script:
 - vendor/bin/phpunit
-- vendor/bin/behat
 deploy:
   provider: heroku
   app: boiling-peak-29524
