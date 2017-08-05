@@ -19,6 +19,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Card
 {
+    const GENDER_MALE = "male", GENDER_FEMALE = "female";
+
     /**
      * @var int The entity Id
      *
@@ -150,4 +152,35 @@ class Card
     {
         return $this->reviewDate;
     }
+
+    /**
+     * @var string $gender
+     *
+     * @ORM\Column(name="gender", type="string", length=50, nullable=true)
+     * @Assert\Choice(
+     *      choices = {
+     *          Card::GENDER_FEMALE: "female",
+     *          Card::GENDER_MALE: "male"
+     *      }
+     * )
+     * @Groups({"read", "write"})
+     */
+    private $gender;
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param string $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
 }

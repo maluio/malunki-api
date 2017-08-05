@@ -29,7 +29,8 @@ Feature: Manage cards
     """
     {
       "word": "ohlala",
-      "front": "vorne"
+      "front": "vorne",
+      "gender": "female"
     }
     """
     Then the response status code should be 201
@@ -45,7 +46,8 @@ Feature: Manage cards
       "word": "ohlala",
       "reviewQualities": null,
       "front": "vorne",
-      "reviewDate": "2000-07-29T11:43:16+00:00"
+      "reviewDate": "2000-07-29T11:43:16+00:00",
+      "gender": "female"
     }
     """
   Scenario: Update a card
@@ -96,7 +98,8 @@ Feature: Manage cards
           }
       ],
       "front": "vorneNeu",
-      "reviewDate": "2000-07-29T11:43:16+00:00"
+      "reviewDate": "2000-07-29T11:43:16+00:00",
+      "gender": "female"
     }
     """
   Scenario: Get card list
@@ -145,7 +148,8 @@ Feature: Manage cards
                       }
                   ],
               "front": "vorneNeu",
-              "reviewDate": "2000-07-29T11:43:16+00:00"
+              "reviewDate": "2000-07-29T11:43:16+00:00",
+              "gender": "female"
           }
       ],
       "hydra:totalItems": 1
