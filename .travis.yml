@@ -6,9 +6,10 @@ install:
 env:
 - DB_HOST=127.0.0.1 DB_PORT=123 DB_NAME=name DB_USER=user DB_PASSWORD=pw SENDGRID_API_KEY=add-key
   MAIL_RECIPIENT=me@example.com CORS_ALLOW_ORIGIN=https://your-client-url.com LOCALE=en
-  SECRET=secret HTTP_PASSWORD=ADD
+  SECRET=secret HTTP_PASSWORD=pw
 script:
 - vendor/bin/phpunit
+- vendor/bin/behat
 deploy:
   provider: heroku
   app: calm-falls-84629
