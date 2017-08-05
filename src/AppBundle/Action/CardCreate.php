@@ -35,9 +35,6 @@ class CardCreate
             );
         }
 
-        $data->setRepetition(0);
-        $data->setLastInterval(0);
-        $data->setEFactor(0);
         if (!$data->getWord()){
             $data->setWord('');
         }

@@ -93,27 +93,6 @@ class Card
     private $back = '';
 
     /**
-     * @var float
-     *
-     * @ORM\Column(type="float")
-     */
-    private $eFactor = '';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer")
-     */
-    private $repetition = '';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer")
-     */
-    private $lastInterval = '';
-
-    /**
      * @var \DateTime
      *
      * @Groups({"read"})
@@ -181,54 +160,6 @@ class Card
     }
 
     /**
-     * Set eFactor
-     *
-     * @param float $eFactor
-     *
-     * @return Card
-     */
-    public function setEFactor($eFactor)
-    {
-        $this->eFactor = $eFactor;
-
-        return $this;
-    }
-
-    /**
-     * Get eFactor
-     *
-     * @return float
-     */
-    public function getEFactor()
-    {
-        return $this->eFactor;
-    }
-
-    /**
-     * Set repetition
-     *
-     * @param integer $repetition
-     *
-     * @return Card
-     */
-    public function setRepetition($repetition)
-    {
-        $this->repetition = $repetition;
-
-        return $this;
-    }
-
-    /**
-     * Get repetition
-     *
-     * @return integer
-     */
-    public function getRepetition()
-    {
-        return $this->repetition;
-    }
-
-    /**
      * Set reviewDate
      *
      * @param \DateTime $reviewDate
@@ -250,29 +181,5 @@ class Card
     public function getReviewDate()
     {
         return $this->reviewDate;
-    }
-
-    /**
-     * Set lastInterval
-     *
-     * @param integer $lastInterval
-     *
-     * @return Card
-     */
-    public function setLastInterval($lastInterval)
-    {
-        $this->lastInterval = $lastInterval;
-
-        return $this;
-    }
-
-    /**
-     * Get lastInterval
-     *
-     * @return integer
-     */
-    public function getLastInterval()
-    {
-        return $this->lastInterval;
     }
 }
