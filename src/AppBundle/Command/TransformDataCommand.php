@@ -26,32 +26,56 @@ class TransformDataCommand extends ContainerAwareCommand
         $repo = $em->getRepository('AppBundle\Entity\Card');
         $cards = $repo->findAll();
         foreach ($cards as $card) {
-            if (strpos($card->getFront(), ' ;f;') !== FALSE) {
-                $card->setGender('female');
-
-                $card->setFront(
-                    str_replace(
-                        ' ;f;',
-                        '',
-                        $card->getFront()
-                    )
-                );
-            }
-            $em->persist($card);
-            if (strpos($card->getFront(), ' ;m;') !== FALSE) {
-                $card->setGender('male');
-
-                $card->setFront(
-                    str_replace(
-                        ' ;m;',
-                        '',
-                        $card->getFront()
-                    )
-                );
-            }
+            $card = $this->transformWord($card);
+            $card = $this->transformGender($card);
             $em->persist($card);
         }
         $em->flush();
+    }
+
+    protected function transformWord($card){
+        preg_match_all(
+            '/::.+::/',
+            $card->getFront(),
+            $hits
+        );
+        isset($hits[0][0]) ? $word = $hits[0][0] : $word = false;
+        if ($word){
+            $word = str_replace(
+                '::',
+                '',
+                $word
+            );
+        }
+        $card->setWord($word);
+        return $card;
+
+    }
+
+    protected function transformGender($card){
+        if (strpos($card->getFront(), ' ;f;') !== FALSE) {
+            $card->setGender('female');
+
+            $card->setFront(
+                str_replace(
+                    ' ;f;',
+                    '',
+                    $card->getFront()
+                )
+            );
+        }
+        if (strpos($card->getFront(), ' ;m;') !== FALSE) {
+            $card->setGender('male');
+
+            $card->setFront(
+                str_replace(
+                    ' ;m;',
+                    '',
+                    $card->getFront()
+                )
+            );
+        }
+        return $card;
     }
 
 
