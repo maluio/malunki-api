@@ -85,14 +85,6 @@ class Card
     private $front = '';
 
     /**
-     * @var string back
-     *
-     * @ORM\Column(type="text")
-     * @Groups({"read", "write"})
-     */
-    private $back = '';
-
-    /**
      * @var \DateTime
      *
      * @Groups({"read"})
@@ -133,30 +125,6 @@ class Card
     public function getFront()
     {
         return $this->front;
-    }
-
-    /**
-     * Set back
-     *
-     * @param string $back
-     *
-     * @return Card
-     */
-    public function setBack($back)
-    {
-        $this->back = $back;
-
-        return $this;
-    }
-
-    /**
-     * Get back
-     *
-     * @return string
-     */
-    public function getBack()
-    {
-        return $this->back;
     }
 
     /**

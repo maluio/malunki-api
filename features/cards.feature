@@ -29,8 +29,7 @@ Feature: Manage cards
     """
     {
       "word": "ohlala",
-      "front": "vorne",
-      "back": "hinten"
+      "front": "vorne"
     }
     """
     Then the response status code should be 201
@@ -46,7 +45,6 @@ Feature: Manage cards
       "word": "ohlala",
       "reviewQualities": null,
       "front": "vorne",
-      "back": "hinten",
       "reviewDate": "2000-07-29T11:43:16+00:00"
     }
     """
@@ -57,8 +55,7 @@ Feature: Manage cards
     """
     {
       "word": "maison",
-      "front": "vorneNeu",
-      "back": "hintenNeu"
+      "front": "vorneNeu"
     }
     """
     Then the response status code should be 200
@@ -99,7 +96,6 @@ Feature: Manage cards
           }
       ],
       "front": "vorneNeu",
-      "back": "hintenNeu",
       "reviewDate": "2000-07-29T11:43:16+00:00"
     }
     """
@@ -149,7 +145,6 @@ Feature: Manage cards
                       }
                   ],
               "front": "vorneNeu",
-              "back": "hintenNeu",
               "reviewDate": "2000-07-29T11:43:16+00:00"
           }
       ],

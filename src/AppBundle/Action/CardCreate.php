@@ -35,10 +35,6 @@ class CardCreate
             );
         }
 
-        if (!$data->getWord()){
-            $data->setWord('');
-        }
-
         return $data;
     }
 
