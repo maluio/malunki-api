@@ -4,14 +4,18 @@ namespace AppBundle\Action;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RequestStack;
+use AppBundle\Entity\Image;
 
 class CardCreate
 {
     private $kernel;
+    protected $requestStack;
 
-    public function __construct(KernelInterface $kernel)
+    public function __construct(KernelInterface $kernel, RequestStack $requestStack)
     {
         $this->kernel = $kernel;
+        $this->requestStack = $requestStack;
     }
 
     /**
@@ -26,6 +30,17 @@ class CardCreate
      */
     public function __invoke($data)
     {
+        $request = $this->requestStack->getCurrentRequest();
+
+        $content = json_decode($request->getContent(), true);
+
+        if (isset($content['images'])){
+            foreach ($content['images'] as $image){
+                $imgNew = new Image();
+                $imgNew->setUrl($image['url']);
+                $data->addImage($imgNew);
+            }
+        }
 
         $data->setReviewDate(new \DateTime());
 

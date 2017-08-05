@@ -47,7 +47,8 @@ Feature: Manage cards
       "reviewQualities": null,
       "front": "vorne",
       "reviewDate": "2000-07-29T11:43:16+00:00",
-      "gender": "female"
+      "gender": "female",
+      "images": []
     }
     """
   Scenario: Update a card
@@ -99,7 +100,8 @@ Feature: Manage cards
       ],
       "front": "vorneNeu",
       "reviewDate": "2000-07-29T11:43:16+00:00",
-      "gender": "female"
+      "gender": "female",
+      "images": []
     }
     """
   Scenario: Get card list
@@ -149,7 +151,8 @@ Feature: Manage cards
                   ],
               "front": "vorneNeu",
               "reviewDate": "2000-07-29T11:43:16+00:00",
-              "gender": "female"
+              "gender": "female",
+              "images": []
           }
       ],
       "hydra:totalItems": 1

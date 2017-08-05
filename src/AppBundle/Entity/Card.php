@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  *
@@ -20,6 +21,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Card
 {
     const GENDER_MALE = "male", GENDER_FEMALE = "female";
+
+    /**
+     * Card constructor.
+     */
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     /**
      * @var int The entity Id
@@ -181,6 +190,29 @@ class Card
     public function setGender($gender)
     {
         $this->gender = $gender;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="card", cascade={"persist"})
+     * @Groups({"read", "write"})
+     */
+    private $images;
+
+    /**
+     * @return mixed
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param $image
+     */
+    public function addImage($image)
+    {
+        $this->images->add($image);
+        $image->setCard($this);
     }
 
 }
