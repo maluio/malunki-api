@@ -11,6 +11,6 @@ script:
 - vendor/bin/phpunit
 deploy:
   provider: heroku
-  app: boiling-peak-29524
+  app: calm-falls-84629
   api_key:
     secure: ZeSYn2OOftGYNMvwGPP/9SjYwIBwymZtWXwDWzJgiEMn4J/VourIfti8YNOd77JXYTOUIsaiO03M2iVJSNuTkJWrolDN/qYcDDY6E85Tmsmyibvk0VS/3828MCz4iKJTTpJZ+Pj6JTRtGuxTKbFEdxQjH+b0Z6VfvbILcU0vm7W/mrTIr4zUV+IBCo+xxcIk0ekV2R+ACfpHnfJUP4PQwHXL+Iy6S8agd1ZsKs/Kg/dxgzVwtfigkE1PZYTbW0yYyszTAYOkSW/CEbxJlUvgs8fZsSiibr4Q4+QDV5wDlpc0Rtx09Y9cbpfCmu2GQcxEtO0uqJkdKOWRS/z6sigNsrU0F7lpeQa1m0PGt8/+ESecktmn8nNYsGT6a0t7xhut1CYsNx1PRviNy5W/TMtQ8L06DE/iEIzRLGGyBdoRX/Zo6lI6/Jarz/ENS98DSOBMYaLuTRNg/yyAtdISnVSdhoKtvFplDXV9YuKAmvjGaw5qeCgy/6zOAmY9/0Ib2u1XXSyObwA2XVEKQu1XFzHaq2e/FxOp6cSoJ0qLhO8YmXCizPYwvQrvfod4RsHvWEze2SSRVSnfymQF8pRPXe4+Or+KnWXsT+/IudlVYHRy79wPlbrpLflp++9n5k3YXtIRpTM3C09Fl2AO1z+cqLK0fxDT1V9Y010k3E36s1DNlY4=

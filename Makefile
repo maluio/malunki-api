@@ -31,3 +31,7 @@ permissions:
 .PHONY: assets
 assets:
 	docker-compose exec app bin/console assets:install
+
+.PHONY: schema
+schema:
+	docker-compose exec app bin/console doctrine:schema:update --force
