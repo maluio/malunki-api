@@ -215,4 +215,28 @@ class Card
         $image->setCard($this);
     }
 
+    /**
+     * @return int
+     */
+    public function getMinutesTilNextReview()
+    {
+        return $this->minutesTilNextReview;
+    }
+
+    /**
+     * @param int $minutesTilNextReview
+     */
+    public function setMinutesTilNextReview($minutesTilNextReview)
+    {
+        $this->minutesTilNextReview = $minutesTilNextReview;
+    }
+
+    /**
+     * @var integer
+     *
+     * @Groups({"write"})
+     *
+     */
+    private $minutesTilNextReview = '';
+
 }
