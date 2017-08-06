@@ -39,7 +39,7 @@ class CardUpdate
             $this->reviewQualitiesProvider->get()
         );
 
-        if ($data->getMinutesTilNextReview()) {
+        if (null !== $data->getMinutesTilNextReview() && is_numeric($data->getMinutesTilNextReview())) {
             // seems like you need to create a new \DateTime, otherwise changes are not detected?!
             $newDate = new \DateTime();
             $newDate->setTimestamp($newDate->getTimestamp() + ($data->getMinutesTilNextReview() * 60));
