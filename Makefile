@@ -35,3 +35,7 @@ assets:
 .PHONY: schema
 schema:
 	docker-compose exec app bin/console doctrine:schema:update --force
+
+.PHONY: db-dump
+db-dump:
+	docker-compose exec db mysqldump -uroot -pmalunki malunki > /var/www/sql-dumps/malunki-$(shell date -d "today" +"%Y%m%d%H%M").sql
