@@ -38,4 +38,4 @@ schema:
 
 .PHONY: db-dump
 db-dump:
-	docker-compose exec db mysqldump -uroot -pmalunki malunki > /var/www/sql-dumps/malunki-$(shell date -d "today" +"%Y%m%d%H%M").sql
+	docker-compose exec db db-dump
