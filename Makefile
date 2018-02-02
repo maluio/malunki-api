@@ -38,4 +38,4 @@ schema:
 
 .PHONY: db-dump
 db-dump:
-	docker-compose exec db db-dump
+	docker-compose exec db /bin/bash /usr/local/bin/db-dump
