@@ -39,3 +39,7 @@ schema:
 .PHONY: db-dump
 db-dump:
 	docker-compose exec db /bin/bash /usr/local/bin/db-dump
+
+.PHONY: dev
+dev:
+	docker-compose -f docker-compose.dev.yml up -d --build
