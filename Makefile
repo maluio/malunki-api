@@ -17,11 +17,11 @@ cache : cacheclear cachewarmup assets permissions
 
 .PHONY: cacheclear
 cacheclear:
-	docker-compose exec app bin/console cache:clear --no-warmup
+	docker-compose exec app php bin/console cache:clear --no-warmup
 
 .PHONY: cachewarmup
 cachewarmup:
-	docker-compose exec app bin/console cache:warmup
+	docker-compose exec app php bin/console cache:warmup
 
 # hack to fix container permissions issue
 .PHONY: permissions
@@ -30,11 +30,11 @@ permissions:
 
 .PHONY: assets
 assets:
-	docker-compose exec app bin/console assets:install
+	docker-compose exec app php bin/console assets:install
 
 .PHONY: schema
 schema:
-	docker-compose exec app bin/console doctrine:schema:update --force
+	docker-compose exec app php bin/console doctrine:schema:update --force
 
 .PHONY: db-dump
 db-dump:
