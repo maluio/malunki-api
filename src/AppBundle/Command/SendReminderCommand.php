@@ -38,7 +38,7 @@ class SendReminderCommand extends ContainerAwareCommand
         $from = new \SendGrid\Email(null, "malunki@example.com");
         $subject = 'Malunki due cards: ' . $numberOfDueCards;
         $to = new \SendGrid\Email(null, getenv('MAIL_RECIPIENT'));
-        $content = new \SendGrid\Content("text/plain", "https://limitless-atoll-18387.herokuapp.com");
+        $content = new \SendGrid\Content("text/plain", "Why not learn a couple of words today?");
         $mail = new \SendGrid\Mail($from, $subject, $to, $content);
 
         $apiKey = getenv('SENDGRID_API_KEY');
