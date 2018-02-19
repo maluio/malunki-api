@@ -43,3 +43,7 @@ db-dump:
 .PHONY: dev
 dev:
 	docker-compose -f docker-compose.dev.yml up -d --build
+
+.PHONY prod:
+prod:
+	docker-compose -f docker-compose.yml -f docker-compose-production.yml up --build

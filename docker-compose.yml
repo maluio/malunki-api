@@ -9,7 +9,7 @@ services:
       - db
     environment:
       # Change to prod in production
-      - SYMFONY_ENV=prod
+      - SYMFONY_ENV=dev
       - HTTP_PASSWORD=pw
       - DB_HOST=db
       - DB_PORT=3306
